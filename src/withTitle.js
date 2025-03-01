@@ -1,7 +1,10 @@
 import React from 'react';
 
-export const withTitle = (WrappedComponent) => { // Ekspor sebagai named export
+const withTitle = (WrappedComponent) => {
   return (props) => {
-    return <WrappedComponent {...props} title="Daftar Baju" />;
+    return <WrappedComponent {...props} title="Aplikasi Produk" />;
   };
 };
+
+// Ekspor sebagai default
+export default withTitle;
