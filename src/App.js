@@ -1,13 +1,19 @@
 import React from 'react';
-import withTitle from './withTitle'; // Impor tanpa kurung kurawal
-import Product from './Product'; // Impor komponen Product
+import withTitle from './withTitle';
+import Header from './components/Header';
 
 const App = (props) => {
+  // Data daftar menu
+  const listMenu = [
+    { code: 'home', name: 'Home' },
+    { code: 'about', name: 'About' },
+    { code: 'contact', name: 'Contact' },
+  ];
+
   return (
     <div className="App">
       <Header listMenu={listMenu} />
       <h1>Halaman: {props.title}</h1>
-      <Product /> {/* Gunakan komponen Product di sini */}
     </div>
   );
 };
