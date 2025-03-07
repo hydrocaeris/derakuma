@@ -1,39 +1,24 @@
-// start file App.js
 import React, { useState } from 'react';
-import { withTitle } from "./withTitle";
+import ReactDOM from "react-dom/client";
 
-const App = (props) => {
-  // Deklarasi state untuk menyimpan value dari input username
-  const [username, setUsername] = useState(""); // deklarasi dan inisialisasi, local scope
+const App = () => 
+function Total() {
+  // Deklarasi state arr sebagai array dengan nilai awal [1]
+  const [arr, setArr] = useState([1]); // deklarasi dan inisialisasi, local scope
 
-  // Fungsi untuk menangani perubahan pada input
-  const handleChange = (e) => {
-    setUsername(e.target.value); // mengubah state username sesuai dengan input user
-  };
-
-  // Fungsi untuk menangani submit form
-  const handleSubmit = (e) => {
-    e.preventDefault(); // mencegah form melakukan reload halaman
-    alert(`Username: ${username}`); // menampilkan alert dengan value username
-  };
+  function handleClick() {
+    // Menambahkan nilai 1 ke array dengan menggunakan spread operator
+    setArr([...arr, 1]); // memperbarui state arr dengan menambahkan 1 di akhir array
+  }
 
   return (
-    <div className="App">
-      <h1>Halaman: {props.title}</h1>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Username:</label>
-        <input 
-          type="text" 
-          id="username" 
-          value={username} 
-          onChange={handleChange} 
-          placeholder="Masukkan username..."
-        />
-        <button type="submit">Submit</button>
-      </form>
+    <div>
+      <p>Total Length Array: {arr.length}</p>
+      <button onClick={handleClick}>Tambah</button>
     </div>
   );
-};
+}
 
-export default withTitle(App);
-// end file App.js
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<Total />);
+export default App;
